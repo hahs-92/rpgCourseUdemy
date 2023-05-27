@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 1683203233}
   - component: {fileID: 1683203232}
   - component: {fileID: 1683203231}
+  - component: {fileID: 1683203234}
   m_Layer: 0
   m_Name: GreenNinja
   m_TagString: Untagged
@@ -375,3 +376,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1683203234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683203227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ae277ff72bd5e4eb4405bf2a8dc8a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

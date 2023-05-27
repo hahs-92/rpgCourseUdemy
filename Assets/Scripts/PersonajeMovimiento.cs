@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PersonajeMovimiento : MonoBehaviour
 {
+    [SerializeField] private float velocidad;
     private Rigidbody2D _rb;
     private Vector2 _input;
     private Vector2 _direccionMovimiento;
-    [SerializeField] private float velocidad;
 
+    public Vector2 DireccionMovimiento => _direccionMovimiento;
+    public bool EnMovimiento => _direccionMovimiento.magnitude > 0f;
+    
 
     private void Awake()
     {
