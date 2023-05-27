@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Stats")]
-    //[SerializeField] private PersonajeStats stats;
+    [Header("Scriptable Stats")]
+    [SerializeField] private PersonajeStats stats;
 
     [Header("Paneles")]
-    //[SerializeField] private GameObject panelStats;
+    [SerializeField] private GameObject panelStats;
 
     [Header("Barra")]
     [SerializeField] private Image vidaPlayer;
@@ -20,17 +20,17 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI vidaTMP;
     [SerializeField] private TextMeshProUGUI manaTMP;
     [SerializeField] private TextMeshProUGUI expTMP;
-    //[SerializeField] private TextMeshProUGUI nivelTMP;
+    [SerializeField] private TextMeshProUGUI nivelTMP;
 
-    //[Header("Stats")]
-    //[SerializeField] private TextMeshProUGUI statDañoTMP;
-    //[SerializeField] private TextMeshProUGUI statDefensaTMP;
-    //[SerializeField] private TextMeshProUGUI statCriticoTMP;
-    //[SerializeField] private TextMeshProUGUI statBloqueoTMP;
-    //[SerializeField] private TextMeshProUGUI statVelocidadTMP;
-    //[SerializeField] private TextMeshProUGUI statNivelTMP;
-    //[SerializeField] private TextMeshProUGUI statExpTMP;
-    //[SerializeField] private TextMeshProUGUI statExpRequeridaTMP;
+    [Header("Stats")]
+    [SerializeField] private TextMeshProUGUI statDañoTMP;
+    [SerializeField] private TextMeshProUGUI statDefensaTMP;
+    [SerializeField] private TextMeshProUGUI statCriticoTMP;
+    [SerializeField] private TextMeshProUGUI statBloqueoTMP;
+    [SerializeField] private TextMeshProUGUI statVelocidadTMP;
+    [SerializeField] private TextMeshProUGUI statNivelTMP;
+    [SerializeField] private TextMeshProUGUI statExpTMP;
+    [SerializeField] private TextMeshProUGUI statExpRequeridaTMP;
     //[SerializeField] private TextMeshProUGUI atributoFuerzaTMP;
     //[SerializeField] private TextMeshProUGUI atributoInteligenciaTMP;
     //[SerializeField] private TextMeshProUGUI atributoDestrezaTMP;
@@ -47,7 +47,7 @@ public class UIManager : Singleton<UIManager>
     private void Update()
     {
         ActualizarUIPersonaje();
-        //ActualizarPanelStats();
+        ActualizarPanelStats();
     }
 
     private void ActualizarUIPersonaje()
@@ -62,30 +62,30 @@ public class UIManager : Singleton<UIManager>
         vidaTMP.text = $"{vidaActual}/{vidaMax}";
         manaTMP.text = $"{manaActual}/{manaMax}";
         expTMP.text = $"{((expActual / expRequeridaNuevoNivel) * 100):F2}%";
-        //nivelTMP.text = $"Nivel {stats.Nivel}";
+        nivelTMP.text = $"Nivel {stats.Nivel}";
     }
 
-    //private void ActualizarPanelStats()
-    //{
-    //    if (panelStats.activeSelf == false)
-    //    {
-    //        return;
-    //    }
+    private void ActualizarPanelStats()
+    {
+        if (panelStats.activeSelf == false)
+        {
+            return;
+        }
 
-    //    statDañoTMP.text = stats.Daño.ToString();
-    //    statDefensaTMP.text = stats.Defensa.ToString();
-    //    statCriticoTMP.text = $"{stats.PorcentajeCritico}%";
-    //    statBloqueoTMP.text = $"{stats.PorcentajeBloqueo}%";
-    //    statVelocidadTMP.text = stats.Velocidad.ToString();
-    //    statNivelTMP.text = stats.Nivel.ToString();
-    //    statExpTMP.text = stats.ExpActual.ToString();
-    //    statExpRequeridaTMP.text = stats.ExpRequeridaSiguienteNivel.ToString();
+        statDañoTMP.text = stats.Daño.ToString();
+        statDefensaTMP.text = stats.Defensa.ToString();
+        statCriticoTMP.text = $"{stats.PorcentajeCritico}%";
+        statBloqueoTMP.text = $"{stats.PorcentajeBloqueo}%";
+        statVelocidadTMP.text = stats.Velocidad.ToString();
+        statNivelTMP.text = stats.Nivel.ToString();
+        statExpTMP.text = stats.ExpActual.ToString();
+        statExpRequeridaTMP.text = stats.ExpRequeridaSiguienteNivel.ToString();
 
-    //    atributoFuerzaTMP.text = stats.Fuerza.ToString();
-    //    atributoInteligenciaTMP.text = stats.Inteligencia.ToString();
-    //    atributoDestrezaTMP.text = stats.Destreza.ToString();
-    //    atributosDisponiblesTMP.text = $"Puntos: {stats.PuntosDisponibles}";
-    //}
+        //atributoFuerzaTMP.text = stats.Fuerza.ToString();
+        //atributoInteligenciaTMP.text = stats.Inteligencia.ToString();
+        //atributoDestrezaTMP.text = stats.Destreza.ToString();
+        //atributosDisponiblesTMP.text = $"Puntos: {stats.PuntosDisponibles}";
+    }
 
     public void ActualizarVidaPersonaje(float pVidaActual, float pVidaMax)
     {
