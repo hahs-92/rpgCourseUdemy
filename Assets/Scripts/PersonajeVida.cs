@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PersonajeVida : VidaBase 
 {
+    public static Action EventoPersonajeDerrotado;
+    public bool Derrotado { get; private set; }
     public bool PuedeSerCurado => Salud < saludMax;
     private BoxCollider2D _boxCollider2D;
 
@@ -33,6 +35,11 @@ public class PersonajeVida : VidaBase
 
     public void RestaurarSalud(float cantidad)
     {
+        if (Derrotado)
+        {
+            return;
+        }
+
         if (PuedeSerCurado)
         {
             Salud += cantidad;
@@ -47,7 +54,9 @@ public class PersonajeVida : VidaBase
 
     protected override void PersonajeDerrotado()
     {
-      
+        _boxCollider2D.enabled = false;
+        Derrotado = true;
+        EventoPersonajeDerrotado?.Invoke();
     }
 
     protected override void ActualizarBarraVida(float vidaActual, float vidaMax)

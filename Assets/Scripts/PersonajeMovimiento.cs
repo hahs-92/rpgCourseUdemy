@@ -6,6 +6,7 @@ public class PersonajeMovimiento : MonoBehaviour
 {
     [SerializeField] private float velocidad;
     private Rigidbody2D _rb;
+    private PersonajeVida _personajeVida;
     private Vector2 _input;
     private Vector2 _direccionMovimiento;
 
@@ -16,10 +17,17 @@ public class PersonajeMovimiento : MonoBehaviour
     private void Awake()
     {
         _rb= GetComponent<Rigidbody2D>();
+        _personajeVida = GetComponent<PersonajeVida>();
     }
    
     void Update()
     {
+        if(_personajeVida.Derrotado)
+        {
+            _direccionMovimiento = Vector2.zero;
+            return;
+        }
+
         _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         if (_input.x > 0.1f)

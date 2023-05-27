@@ -8,7 +8,8 @@ public class PersonajeAnimaciones : MonoBehaviour
     private PersonajeMovimiento _personajeMovimiento;
     private readonly int direccionX = Animator.StringToHash("x");
     private readonly int direccionY = Animator.StringToHash("y");
-  
+    private readonly int derrotado = Animator.StringToHash("Derrotado");
+
 
     private void Awake()
     {
@@ -29,6 +30,16 @@ public class PersonajeAnimaciones : MonoBehaviour
 
         _animator.SetFloat(direccionX, _personajeMovimiento.DireccionMovimiento.x);
         _animator.SetFloat(direccionY, _personajeMovimiento.DireccionMovimiento.y);
+    }
+
+    private void OnEnable()
+    {
+        PersonajeVida.EventoPersonajeDerrotado += PersonajeDerrotadoRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        PersonajeVida.EventoPersonajeDerrotado -= PersonajeDerrotadoRespuesta;
     }
 
     private void ActualizarLayers()
@@ -52,5 +63,17 @@ public class PersonajeAnimaciones : MonoBehaviour
         }
         // activamos el layer 
         _animator.SetLayerWeight(_animator.GetLayerIndex(nombreLayer), 1);
+    }
+
+    private void PersonajeDerrotadoRespuesta()
+    {
+        if (_animator.GetLayerWeight(_animator.GetLayerIndex(layerIdle)) == 1)
+        {
+            _animator.SetBool(derrotado, true);
+        } else
+        {
+            ActivarLayer(layerIdle);
+            _animator.SetBool(derrotado, true);
+        }
     }
 }
