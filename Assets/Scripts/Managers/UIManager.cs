@@ -13,12 +13,12 @@ public class UIManager : Singleton<UIManager>
 
     [Header("Barra")]
     [SerializeField] private Image vidaPlayer;
-    //[SerializeField] private Image manaPlayer;
+    [SerializeField] private Image manaPlayer;
     //[SerializeField] private Image expPlayer;
 
     [Header("Texto")]
     [SerializeField] private TextMeshProUGUI vidaTMP;
-    //[SerializeField] private TextMeshProUGUI manaTMP;
+    [SerializeField] private TextMeshProUGUI manaTMP;
     //[SerializeField] private TextMeshProUGUI expTMP;
     //[SerializeField] private TextMeshProUGUI nivelTMP;
 
@@ -38,8 +38,8 @@ public class UIManager : Singleton<UIManager>
 
     private float vidaActual;
     private float vidaMax;
-    //private float manaActual;
-    //private float manaMax;
+    private float manaActual;
+    private float manaMax;
     //private float expActual;
     //private float expRequeridaNuevoNivel;
 
@@ -54,13 +54,13 @@ public class UIManager : Singleton<UIManager>
     {
         vidaPlayer.fillAmount = Mathf
             .Lerp(vidaPlayer.fillAmount,vidaActual / vidaMax, 10f * Time.deltaTime);
-        //manaPlayer.fillAmount = Mathf
-        //    .Lerp(manaPlayer.fillAmount,manaActual / manaMax, 10f * Time.deltaTime);
+        manaPlayer.fillAmount = Mathf
+            .Lerp(manaPlayer.fillAmount, manaActual / manaMax, 10f * Time.deltaTime);
         //expPlayer.fillAmount = Mathf
         //    .Lerp(expPlayer.fillAmount,expActual / expRequeridaNuevoNivel, 10f * Time.deltaTime);
 
         vidaTMP.text = $"{vidaActual}/{vidaMax}";
-        //manaTMP.text = $"{manaActual}/{manaMax}";
+        manaTMP.text = $"{manaActual}/{manaMax}";
         //expTMP.text = $"{((expActual / expRequeridaNuevoNivel) * 100):F2}%";
         //nivelTMP.text = $"Nivel {stats.Nivel}";
     }
@@ -93,11 +93,11 @@ public class UIManager : Singleton<UIManager>
         vidaMax = pVidaMax;
     }
 
-    //public void ActualizarManaPersonaje(float pManaActual, float pManaMax)
-    //{
-    //    manaActual = pManaActual;
-    //    manaMax = pManaMax;
-    //}
+    public void ActualizarManaPersonaje(float pManaActual, float pManaMax)
+    {
+        manaActual = pManaActual;
+        manaMax = pManaMax;
+    }
 
     //public void ActualizarExpPersonaje(float pExpActual, float pExpRequerida)
     //{
