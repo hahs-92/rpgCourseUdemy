@@ -31,10 +31,10 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private TextMeshProUGUI statNivelTMP;
     [SerializeField] private TextMeshProUGUI statExpTMP;
     [SerializeField] private TextMeshProUGUI statExpRequeridaTMP;
-    //[SerializeField] private TextMeshProUGUI atributoFuerzaTMP;
-    //[SerializeField] private TextMeshProUGUI atributoInteligenciaTMP;
-    //[SerializeField] private TextMeshProUGUI atributoDestrezaTMP;
-    //[SerializeField] private TextMeshProUGUI atributosDisponiblesTMP;
+    [SerializeField] private TextMeshProUGUI atributoFuerzaTMP;
+    [SerializeField] private TextMeshProUGUI atributoInteligenciaTMP;
+    [SerializeField] private TextMeshProUGUI atributoDestrezaTMP;
+    [SerializeField] private TextMeshProUGUI atributosDisponiblesTMP;
 
     private float vidaActual;
     private float vidaMax;
@@ -81,10 +81,10 @@ public class UIManager : Singleton<UIManager>
         statExpTMP.text = stats.ExpActual.ToString();
         statExpRequeridaTMP.text = stats.ExpRequeridaSiguienteNivel.ToString();
 
-        //atributoFuerzaTMP.text = stats.Fuerza.ToString();
-        //atributoInteligenciaTMP.text = stats.Inteligencia.ToString();
-        //atributoDestrezaTMP.text = stats.Destreza.ToString();
-        //atributosDisponiblesTMP.text = $"Puntos: {stats.PuntosDisponibles}";
+        atributoFuerzaTMP.text = stats.Fuerza.ToString();
+        atributoInteligenciaTMP.text = stats.Inteligencia.ToString();
+        atributoDestrezaTMP.text = stats.Destreza.ToString();
+        atributosDisponiblesTMP.text = $"Puntos: {stats.PuntosDisponibles}";
     }
 
     public void ActualizarVidaPersonaje(float pVidaActual, float pVidaMax)
