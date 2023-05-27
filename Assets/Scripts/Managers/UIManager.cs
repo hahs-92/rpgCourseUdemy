@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
     [Header("Stats")]
     //[SerializeField] private PersonajeStats stats;
@@ -42,13 +42,6 @@ public class UIManager : MonoBehaviour
     //private float manaMax;
     //private float expActual;
     //private float expRequeridaNuevoNivel;
-
-    public static UIManager Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
 
     private void Update()
