@@ -388,3 +388,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ae277ff72bd5e4eb4405bf2a8dc8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerIdle: Idle
+  layerCaminar: Caminar
