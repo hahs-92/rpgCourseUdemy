@@ -52,6 +52,14 @@ public class PersonajeVida : VidaBase
         }
     }
 
+    public void RestaurarPersonaje()
+    {
+        _boxCollider2D.enabled = true;
+        Derrotado = false;
+        Salud = saludInicial;
+        ActualizarBarraVida(Salud, saludInicial);
+    }
+
     protected override void PersonajeDerrotado()
     {
         _boxCollider2D.enabled = false;
@@ -61,7 +69,7 @@ public class PersonajeVida : VidaBase
 
     protected override void ActualizarBarraVida(float vidaActual, float vidaMax)
     {
-       
+       UIManager.Instance.ActualizarVidaPersonaje(vidaActual, vidaMax);
     }
 
 }

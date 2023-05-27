@@ -42,6 +42,12 @@ public class PersonajeAnimaciones : MonoBehaviour
         PersonajeVida.EventoPersonajeDerrotado -= PersonajeDerrotadoRespuesta;
     }
 
+    public void RevivirPersonaje()
+    {
+        ActivarLayer(layerIdle);
+        _animator.SetBool(derrotado, false);
+    }
+
     private void ActualizarLayers()
     {
         if (_personajeMovimiento.EnMovimiento)
