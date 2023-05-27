@@ -14,12 +14,12 @@ public class UIManager : Singleton<UIManager>
     [Header("Barra")]
     [SerializeField] private Image vidaPlayer;
     [SerializeField] private Image manaPlayer;
-    //[SerializeField] private Image expPlayer;
+    [SerializeField] private Image expPlayer;
 
     [Header("Texto")]
     [SerializeField] private TextMeshProUGUI vidaTMP;
     [SerializeField] private TextMeshProUGUI manaTMP;
-    //[SerializeField] private TextMeshProUGUI expTMP;
+    [SerializeField] private TextMeshProUGUI expTMP;
     //[SerializeField] private TextMeshProUGUI nivelTMP;
 
     //[Header("Stats")]
@@ -40,8 +40,8 @@ public class UIManager : Singleton<UIManager>
     private float vidaMax;
     private float manaActual;
     private float manaMax;
-    //private float expActual;
-    //private float expRequeridaNuevoNivel;
+    private float expActual;
+    private float expRequeridaNuevoNivel;
 
 
     private void Update()
@@ -56,12 +56,12 @@ public class UIManager : Singleton<UIManager>
             .Lerp(vidaPlayer.fillAmount,vidaActual / vidaMax, 10f * Time.deltaTime);
         manaPlayer.fillAmount = Mathf
             .Lerp(manaPlayer.fillAmount, manaActual / manaMax, 10f * Time.deltaTime);
-        //expPlayer.fillAmount = Mathf
-        //    .Lerp(expPlayer.fillAmount,expActual / expRequeridaNuevoNivel, 10f * Time.deltaTime);
+        expPlayer.fillAmount = Mathf
+            .Lerp(expPlayer.fillAmount, expActual / expRequeridaNuevoNivel, 10f * Time.deltaTime);
 
         vidaTMP.text = $"{vidaActual}/{vidaMax}";
         manaTMP.text = $"{manaActual}/{manaMax}";
-        //expTMP.text = $"{((expActual / expRequeridaNuevoNivel) * 100):F2}%";
+        expTMP.text = $"{((expActual / expRequeridaNuevoNivel) * 100):F2}%";
         //nivelTMP.text = $"Nivel {stats.Nivel}";
     }
 
@@ -99,9 +99,9 @@ public class UIManager : Singleton<UIManager>
         manaMax = pManaMax;
     }
 
-    //public void ActualizarExpPersonaje(float pExpActual, float pExpRequerida)
-    //{
-    //    expActual = pExpActual;
-    //    expRequeridaNuevoNivel = pExpRequerida;
-    //}
+    public void ActualizarExpPersonaje(float pExpActual, float pExpRequerida)
+    {
+        expActual = pExpActual;
+        expRequeridaNuevoNivel = pExpRequerida;
+    }
 }
