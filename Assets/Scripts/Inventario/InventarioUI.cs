@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventarioUI : MonoBehaviour
+public class InventarioUI : Singleton<InventarioUI>
 {
     [SerializeField] private InventarioSlot slotPrefab;
     [SerializeField] private Transform contenedor;

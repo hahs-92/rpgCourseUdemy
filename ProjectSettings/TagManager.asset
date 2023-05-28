@@ -56,6 +56,9 @@ TagManager:
   - name: TileMap_Decoracion
     uniqueID: 3483235379
     locked: 0
+  - name: Items
+    uniqueID: 1751926403
+    locked: 0
   - name: Personaje
     uniqueID: 1539068443
     locked: 0
