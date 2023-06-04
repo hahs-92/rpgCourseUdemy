@@ -18,22 +18,24 @@ public class InventarioUI : Singleton<InventarioUI>
 
     private List<InventarioSlot> slotsDisponibles = new List<InventarioSlot>();
     public InventarioSlot SlotSeleccionado { get; private set; }
+    public int IndexSlotInicialPorMover { get; private set; }
 
     private void Start()
     {
         InicializarInventario();
+        IndexSlotInicialPorMover = -1;
     }
 
     private void Update()
     {
         ActualizarSlotSeleccionado();
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    if (SlotSeleccionado != null)
-        //    {
-        //        IndexSlotInicialPorMover = SlotSeleccionado.Index;
-        //    }
-        //}
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (SlotSeleccionado != null)
+            {
+                IndexSlotInicialPorMover = SlotSeleccionado.Index;
+            }
+        }
     }
 
     private void InicializarInventario()
