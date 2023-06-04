@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e079d94dbcb54634197e4fd0cf93a2c6, type: 3}
   m_Name: ItemPocionMana
   m_EditorClassIdentifier: 
-  ID: PocionVida
-  Nombre: Pocion de Vida
-  Icono: {fileID: 21300000, guid: 9def717694ee6f74a83604d765505f89, type: 3}
-  Descripcion: Una pocion especial que restaura 10 puntos de salud
+  ID: PocionMana
+  Nombre: Pocion de Mana
+  Icono: {fileID: 21300000, guid: c7e058b3c9f596146bc66115cdfe5efc, type: 3}
+  Descripcion: Una pocion especial que restaura 20pts de Mana.
   Tipo: 1
   EsConsumible: 1
   EsAcumulable: 1
   AcumulacionMax: 50
   Cantidad: 0
-  MPRestauracion: 10
+  MPRestauracion: 20

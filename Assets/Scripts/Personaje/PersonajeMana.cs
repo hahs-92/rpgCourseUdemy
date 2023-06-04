@@ -9,6 +9,7 @@ public class PersonajeMana : MonoBehaviour
 
     private PersonajeVida _personajeVida;
     public float ManaActual { get; private set; }
+    public bool SePuedeRestaurar => ManaActual < manaMax;
 
 
     private void Awake()
@@ -38,6 +39,23 @@ public class PersonajeMana : MonoBehaviour
             ManaActual -= cantidad;
             ActualizarBarraMana();
         }
+    }
+
+    public void RestaurarMana(float cantidad)
+    {
+        if(ManaActual >= manaMax)
+        {
+            return;
+        }
+
+        ManaActual += cantidad;
+
+        if(ManaActual > manaMax)
+        {
+            ManaActual = manaMax;
+        }
+
+        UIManager.Instance.ActualizarManaPersonaje(ManaActual, manaMax);
     }
 
     private void RegenerarMana()

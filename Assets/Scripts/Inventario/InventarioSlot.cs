@@ -21,8 +21,13 @@ public class InventarioSlot : MonoBehaviour
     [SerializeField] private Image itemIcono;
     [SerializeField] private GameObject fondoCantidad;
     [SerializeField] private TextMeshProUGUI cantidadTMP;
+    private Button _button;
     public int Index { get; set; }
 
+    private void Awake()
+    {
+        _button = GetComponent<Button>();
+    }
 
     public void ActualizarSlot(InventarioItem item, int cantidad)
     {
@@ -39,5 +44,17 @@ public class InventarioSlot : MonoBehaviour
     public void ClickSlot()
     {
         EventoSlotInteraccion?.Invoke(TipoDeInteraccion.Click, Index);
+    }
+
+    public void SlotUsarItem()
+    {
+        if (Inventario.Instance.ItemsInventario[Index] != null)
+        {
+            EventoSlotInteraccion?.Invoke(TipoDeInteraccion.Usar, Index);
+        }
+    }
+    public void SeleccionarSlot()
+    {
+        _button.Select();
     }
 }

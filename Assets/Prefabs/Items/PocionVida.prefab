@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b4d836be7aaaa4fa97a2ba1a2041ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventarioItemReferencia: {fileID: 11400000, guid: 1ff35a9716c36044093afd1fae381863, type: 2}
+  inventarioItemReferencia: {fileID: 11400000, guid: f17b4ec530d121b408977049ab147971, type: 2}
   cantidadPorAgregar: 60

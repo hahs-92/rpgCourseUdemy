@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventarioUI : Singleton<InventarioUI>
@@ -16,13 +17,24 @@ public class InventarioUI : Singleton<InventarioUI>
     [SerializeField] private Transform contenedor;
 
     private List<InventarioSlot> slotsDisponibles = new List<InventarioSlot>();
-
+    public InventarioSlot SlotSeleccionado { get; private set; }
 
     private void Start()
     {
         InicializarInventario();
     }
 
+    private void Update()
+    {
+        ActualizarSlotSeleccionado();
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    if (SlotSeleccionado != null)
+        //    {
+        //        IndexSlotInicialPorMover = SlotSeleccionado.Index;
+        //    }
+        //}
+    }
 
     private void InicializarInventario()
     {
@@ -45,6 +57,30 @@ public class InventarioUI : Singleton<InventarioUI>
         else
         {
             slot.ActivarSlotUI(false);
+        }
+    }
+
+    private void ActualizarSlotSeleccionado()
+    {
+        GameObject goSeleccionado = EventSystem.current.currentSelectedGameObject;
+        if (goSeleccionado == null)
+        {
+            return;
+        }
+
+        InventarioSlot slot = goSeleccionado.GetComponent<InventarioSlot>();
+        if (slot != null)
+        {
+            SlotSeleccionado = slot;
+        }
+    }
+
+    public void UsarItem()
+    {
+        if (SlotSeleccionado != null)
+        {
+            SlotSeleccionado.SlotUsarItem();
+            SlotSeleccionado.SeleccionarSlot();
         }
     }
 
