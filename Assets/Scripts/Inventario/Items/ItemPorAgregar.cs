@@ -12,7 +12,7 @@ public class ItemPorAgregar : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Inventario.Instance.AñadirItem(inventarioItemReferencia, cantidadPorAgregar);
+            Inventario.Instance.AñadirItem(inventarioItemReferencia, cantidadPorAgregar);
             Destroy(gameObject);
         }
     }
