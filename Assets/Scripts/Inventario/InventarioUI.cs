@@ -25,4 +25,18 @@ public class InventarioUI : Singleton<InventarioUI>
             slotsDisponibles.Add(nuevoSlot);
         }
     }
+
+    public void DibujarItemEnInventario(InventarioItem itemPorAñadir, int cantidad, int itemIndex)
+    {
+        InventarioSlot slot = slotsDisponibles[itemIndex];
+        if (itemPorAñadir != null)
+        {
+            slot.ActivarSlotUI(true);
+            slot.ActualizarSlot(itemPorAñadir, cantidad);
+        }
+        else
+        {
+            slot.ActivarSlotUI(false);
+        }
+    }
 }

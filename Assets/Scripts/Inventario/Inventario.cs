@@ -43,8 +43,8 @@ public class Inventario : Singleton<Inventario>
                             AñadirItem(itemPorAñadir, diferencia);
                         }
 
-                        //InventarioUI.Instance.DibujarItemEnInventario(itemPorAñadir,
-                        //    itemsInventario[indexes[i]].Cantidad, indexes[i]);
+                        InventarioUI.Instance.DibujarItemEnInventario(itemPorAñadir,
+                            itemsInventario[indexes[i]].Cantidad, indexes[i]);
                         return;
                     }
                 }
@@ -93,7 +93,7 @@ public class Inventario : Singleton<Inventario>
             {
                 itemsInventario[i] = item.CopiarItem();
                 itemsInventario[i].Cantidad = cantidad;
-                //InventarioUI.Instance.DibujarItemEnInventario(item, cantidad, i);
+                InventarioUI.Instance.DibujarItemEnInventario(item, cantidad, i);
                 return;
             }
         }
