@@ -39657,6 +39657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93449d0c19dda494bb6c52a601021f8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelInventarioDescripcion: {fileID: 1283920140}
+  itemIcono: {fileID: 132306182}
+  itemNombre: {fileID: 171584876}
+  itemDescripcion: {fileID: 1275404247}
   slotPrefab: {fileID: 7700952600551365266, guid: 6f01fa6b7ab076d488d6f8abdaae0722, type: 3}
   contenedor: {fileID: 681067775}
 --- !u!114 &1166795159
@@ -40476,7 +40480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1283920141
 RectTransform:
   m_ObjectHideFlags: 0
