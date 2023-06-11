@@ -18,7 +18,7 @@ MonoBehaviour:
   InteraccionExtra: 0
   Saludo: "Hola compa\xA1\xA1"
   Conversacion:
-  - Oracion: Mi abuelo me contaba historias sobre valientes, que s eadentraban al
+  - Oracion: Mi abuelo me contaba historias sobre valientes, que se adentraban al
       bosque, en busca de aventuras.
   - Oracion: "Cuando crezca quiero ser uno de esos VALIENTES\xA1\xA1"
   Despedida: Nos vemos.
