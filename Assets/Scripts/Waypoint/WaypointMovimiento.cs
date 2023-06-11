@@ -8,11 +8,9 @@ public enum DireccionMovimiento
 
 public class WaypointMovimiento : MonoBehaviour
 {
-    [SerializeField] private DireccionMovimiento direccion;
     [SerializeField] protected float velocidad;
 
-
-    //protected Animator _animator;
+    protected Animator _animator;
     protected Waypoint _waypoint;
     protected int puntoActualIndex;
     protected Vector3 ultimaPosicion;
@@ -21,7 +19,7 @@ public class WaypointMovimiento : MonoBehaviour
     private void Start()
     {
         puntoActualIndex = 0;
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _waypoint = GetComponent<Waypoint>();
     }
 
@@ -70,22 +68,11 @@ public class WaypointMovimiento : MonoBehaviour
     }
 
 
-    private void RotarPersonaje()
+    protected virtual void RotarPersonaje()
     {
-        if(direccion != DireccionMovimiento.Horizontal)
-        {
-            return;
-        }
-
-        if(PuntoPorMoverse.x > ultimaPosicion.x)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        } else
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
+       
     }
-
+    
     protected virtual void RotarVertical()
     {
 
