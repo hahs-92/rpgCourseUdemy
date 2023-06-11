@@ -15,6 +15,7 @@ public class Waypoint : MonoBehaviour
         PosicionActual = transform.position;
     }
 
+
     public Vector3 ObtenerPosicionMovimiento(int index)
     {
         return PosicionActual + puntos[index];
