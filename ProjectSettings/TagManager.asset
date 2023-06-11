@@ -59,6 +59,9 @@ TagManager:
   - name: Items
     uniqueID: 1751926403
     locked: 0
+  - name: UI
+    uniqueID: 898486191
+    locked: 0
   - name: Personaje
     uniqueID: 1539068443
     locked: 0
