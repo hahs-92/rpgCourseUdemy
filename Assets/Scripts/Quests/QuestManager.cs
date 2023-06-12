@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestManager : Singleton<QuestManager>
 {
@@ -15,6 +15,17 @@ public class QuestManager : Singleton<QuestManager>
     [Header("Personaje Quests")]
     [SerializeField] private PersonajeQuestDescripcion personajeQuestPrefab;
     [SerializeField] private Transform personajeQuestContenedor;
+
+
+    [Header("Panel Quest Completado")]
+    [SerializeField] private GameObject panelQuestCompletado;
+    [SerializeField] private TextMeshProUGUI questNombre;
+    [SerializeField] private TextMeshProUGUI questRecompensaOro;
+    [SerializeField] private TextMeshProUGUI questRecompensaExp;
+    [SerializeField] private TextMeshProUGUI questRecompensaItemCantidad;
+    [SerializeField] private Image questRecompensaItemIcono;
+
+    public Quest QuestPorReclamar { get; private set; }
 
 
     private void Start()
@@ -32,6 +43,17 @@ public class QuestManager : Singleton<QuestManager>
         }
     }
 
+    private void OnEnable()
+    {
+        Quest.EventoQuestCompletado += QuestCompletadoRespuesta;
+    }
+
+    private void OnDisable()
+    {
+        Quest.EventoQuestCompletado -= QuestCompletadoRespuesta;
+    }
+
+
     public void AñadirQuest(Quest questPorCompletar)
     {
         AñadirQuestPorCompletar(questPorCompletar);
@@ -42,6 +64,7 @@ public class QuestManager : Singleton<QuestManager>
         Quest questPorActualizar = QuestExiste(questID);
         questPorActualizar.AñadirProgreso(cantidad);
     }
+
 
     private void CargarQuestEnInspector()
     {
@@ -71,4 +94,22 @@ public class QuestManager : Singleton<QuestManager>
         return null;
     }
 
+    private void QuestCompletadoRespuesta(Quest questCompletado)
+    {
+        QuestPorReclamar = QuestExiste(questCompletado.ID);
+        if (QuestPorReclamar != null)
+        {
+            MostrarQuestCompletado(QuestPorReclamar);
+        }
+    }
+
+    private void MostrarQuestCompletado(Quest questCompletado)
+    {
+        panelQuestCompletado.SetActive(true);
+        questNombre.text = questCompletado.Nombre;
+        questRecompensaOro.text = questCompletado.RecompensaOro.ToString();
+        questRecompensaExp.text = questCompletado.RecompensaExp.ToString();
+        questRecompensaItemCantidad.text = questCompletado.RecompensaItem.Cantidad.ToString();
+        questRecompensaItemIcono.sprite = questCompletado.RecompensaItem.Item.Icono;
+    }
 }
