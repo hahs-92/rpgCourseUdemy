@@ -45,6 +45,13 @@ public class DialogoManager : Singleton<DialogoManager>
                 return;
             }
 
+            if(NPCDisponible.Dialogo.ContieneInteraccionExtra)
+            {
+                UIManager.Instance.AbrirPanelInteraccion(NPCDisponible.Dialogo.InteraccionExtra);
+                AbrirCerrarPanelDialogo(false);
+                return;
+            }
+
             if (dialogoAnimado)
             {
                 ContinuarDialogo();
