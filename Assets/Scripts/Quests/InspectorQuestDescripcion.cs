@@ -14,4 +14,15 @@ public class InspectorQuestDescripcion : QuestDescripcion
                                $"\n-{quest.RecompensaExp} exp" +
                                $"\n-{quest.RecompensaItem.Item.Nombre} x{quest.RecompensaItem.Cantidad}";
     }
+
+    public void AceptarQuest()
+    {
+        if (QuestPorCompletar == null)
+        {
+            return;
+        }
+
+        QuestManager.Instance.AñadirQuest(QuestPorCompletar);
+        gameObject.SetActive(false);
+    }
 }

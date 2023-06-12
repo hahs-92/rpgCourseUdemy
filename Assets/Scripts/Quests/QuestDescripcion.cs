@@ -12,6 +12,7 @@ public class QuestDescripcion : MonoBehaviour
 
     public virtual void ConfigurarQuestUI(Quest quest)
     {
+        QuestPorCompletar = quest;
         questNombre.text = quest.Nombre;
         questDescripcion.text = quest.Descripcion;
     }
