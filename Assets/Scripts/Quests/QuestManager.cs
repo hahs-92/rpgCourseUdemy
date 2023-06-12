@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class QuestManager : Singleton<QuestManager>
 {
+    [Header("Personaje")]
+    [SerializeField] private Personaje personaje;
+
     [Header("Quests")]
     [SerializeField] private Quest[] questDisponibles;
 
@@ -65,6 +68,19 @@ public class QuestManager : Singleton<QuestManager>
         questPorActualizar.AñadirProgreso(cantidad);
     }
 
+    public void ReclamarRecompensa()
+    {
+        if (QuestPorReclamar == null)
+        {
+            return;
+        }
+
+        MonedasManager.Instance.AñadirMonedas(QuestPorReclamar.RecompensaOro);
+        personaje.PersonajeExperiencia.AñadirExperiencia(QuestPorReclamar.RecompensaExp);
+        Inventario.Instance.AñadirItem(QuestPorReclamar.RecompensaItem.Item, QuestPorReclamar.RecompensaItem.Cantidad);
+        panelQuestCompletado.SetActive(false);
+        QuestPorReclamar = null;
+    }
 
     private void CargarQuestEnInspector()
     {
