@@ -24,7 +24,15 @@ public class AccionAtacarPersonaje : IAAccion
 
         if (controller.PersonajeEnRangoDeAtaque(controller.RangoDeAtaqueDeterminado))
         {
-            controller.AtaqueMelee(controller.Daño);
+            if (controller.TipoAtaque == TiposDeAtaque.Embestida)
+            {
+                controller.AtaqueEmbestida(controller.Daño);
+            }
+            else
+            {
+                controller.AtaqueMelee(controller.Daño);
+            }
+
             controller.ActualizarTiempoEntreAtaques();
         }
     }
