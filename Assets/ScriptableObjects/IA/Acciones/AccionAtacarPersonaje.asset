@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f83999dc9e56342869b84412a9ecc7, type: 3}
-  m_Name: EstadoAtacarPersonaje 1
+  m_Script: {fileID: 11500000, guid: ed56aca467c8cda41a9a3a71f6a27079, type: 3}
+  m_Name: AccionAtacarPersonaje
   m_EditorClassIdentifier: 
-  Acciones: []
-  Transiciones: []

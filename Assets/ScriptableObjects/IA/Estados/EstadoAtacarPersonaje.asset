@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8f83999dc9e56342869b84412a9ecc7, type: 3}
-  m_Name: EstadoCaminar
+  m_Name: EstadoAtacarPersonaje
   m_EditorClassIdentifier: 
   Acciones:
-  - {fileID: 11400000, guid: 028e365b020974345bd96eeec70f4053, type: 2}
+  - {fileID: 11400000, guid: 37afea619a1083d47a9307e5d588992b, type: 2}
   Transiciones:
-  - Decision: {fileID: 11400000, guid: 04fea2d261595ca429b00295a2ffffc2, type: 2}
-    EstadoVerdadero: {fileID: 11400000, guid: 04b270b3f3c7aec4d9bf52eb7221fb15, type: 2}
-    EstadoFalso: {fileID: 11400000, guid: 9609583556816a748926c63af52c11ad, type: 2}
+  - Decision: {fileID: 11400000, guid: 6ed18bc79c947d8468f77112ad1c13e8, type: 2}
+    EstadoVerdadero: {fileID: 11400000, guid: 9609583556816a748926c63af52c11ad, type: 2}
+    EstadoFalso: {fileID: 11400000, guid: e0bc4e82edb239e47ac0b386131b2945, type: 2}

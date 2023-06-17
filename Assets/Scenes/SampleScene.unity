@@ -52679,6 +52679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35497d9f1b392b945aba7e5664cf369e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 1ab7d78b1caea9a4aa0710c7ae39bf8c, type: 2}
   estadoInicial: {fileID: 11400000, guid: 3e311fa112c3d3d49b65f9e331dbb7fc, type: 2}
   estadoDefault: {fileID: 11400000, guid: 9609583556816a748926c63af52c11ad, type: 2}
   rangoDeteccion: 4
@@ -52686,7 +52687,13 @@ MonoBehaviour:
   personajeLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  "da\xF1o": 5
+  rangoDeAtaque: 3
+  rangoDeEmbestida: 0
+  tiempoEntreAtaques: 1.5
+  tipoAtaque: 0
   mostrarDeteccion: 0
+  mostrarRangoAtaque: 0
 --- !u!114 &1747701370
 MonoBehaviour:
   m_ObjectHideFlags: 0
