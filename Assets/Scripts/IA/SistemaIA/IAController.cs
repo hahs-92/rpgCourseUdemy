@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum TiposDeAtaque
 {
@@ -10,6 +11,8 @@ public enum TiposDeAtaque
 
 public class IAController : MonoBehaviour
 {
+    public static Action<float> EventoDañoRealizado;
+
     [Header("Stats")]
     [SerializeField] private PersonajeStats stats;
 
@@ -111,7 +114,7 @@ public class IAController : MonoBehaviour
 
         dañoPorRealizar = Mathf.Max(cantidad - stats.Defensa, 1f);
         PersonajeReferencia.GetComponent<PersonajeVida>().RecibirDaño(dañoPorRealizar);
-        //EventoDañoRealizado?.Invoke(dañoPorRealizar);
+        EventoDañoRealizado?.Invoke(dañoPorRealizar);
     }
 
     public void AtaqueMelee(float cantidad)
