@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01273e4663336e4fbbe7e6182b3e539, type: 3}
   m_Name: ArmaMeleBaston
   m_EditorClassIdentifier: 
-  ArmaIcono: {fileID: 21300000, guid: 629219d2de204334998df6c245946ad6, type: 3}
-  IconoSkill: {fileID: 1900447685, guid: c7d3470379e464a47bc871ae80e199ba, type: 3}
-  Tipo: 0
-  "Da\xF1o": 4
-  ManaRequerida: 10
-  ChanceCritico: 1.5
-  ChanceBloqueo: 0.5
+  ArmaIcono: {fileID: 21300000, guid: 7e0b711f755c72e44b2c54a7307448af, type: 3}
+  IconoSkill: {fileID: 0}
+  Tipo: 1
+  "Da\xF1o": 6
+  ManaRequerida: 0
+  ChanceCritico: 3
+  ChanceBloqueo: 2
