@@ -65,3 +65,6 @@ TagManager:
   - name: Personaje
     uniqueID: 1539068443
     locked: 0
+  - name: Proyectil
+    uniqueID: 2021235049
+    locked: 0

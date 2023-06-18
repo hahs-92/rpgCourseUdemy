@@ -17,7 +17,7 @@ public class Arma : ScriptableObject
     public float Daño;
 
     [Header("Arma Magica")]
-    //public Proyectil ProyectilPrefab;
+    public Proyectil ProyectilPrefab;
     public float ManaRequerida;
 
     [Header("Stats")]
