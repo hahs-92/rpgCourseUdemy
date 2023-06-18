@@ -12,6 +12,7 @@ public class PersonajeAtaque : MonoBehaviour
     [SerializeField] private ObjectPooler pooler;
 
     public Arma ArmaEquipada { get; private set; }
+    public EnemigoInteraccion EnemigoObjetivo { get; private set; }
 
 
     private void Awake()
@@ -44,5 +45,34 @@ public class PersonajeAtaque : MonoBehaviour
 
         stats.RemoverBonusPorArma(ArmaEquipada);
         ArmaEquipada = null;
+    }
+
+    private void EnemigoRangoSeleccionado(EnemigoInteraccion enemigoSeleccionado)
+    {
+        if (ArmaEquipada == null) { return; }
+        if (ArmaEquipada.Tipo != TipoArma.Magia) { return; }
+        if (EnemigoObjetivo == enemigoSeleccionado) { return; }
+
+        EnemigoObjetivo = enemigoSeleccionado;
+        EnemigoObjetivo.MostrarEnemigoSeleccionado(true, TipoDeteccion.Rango);
+    }
+
+    private void EnemigoNoSeleccionado()
+    {
+        if (EnemigoObjetivo == null) { return; }
+        EnemigoObjetivo.MostrarEnemigoSeleccionado(false, TipoDeteccion.Rango);
+        EnemigoObjetivo = null;
+    }
+
+    private void OnEnable()
+    {
+        SeleccionManager.EventoEnemigoSeleccionado += EnemigoRangoSeleccionado;
+        SeleccionManager.EventoObjetoNoSeleccionado += EnemigoNoSeleccionado;
+    }
+
+    private void OnDisable()
+    {
+        SeleccionManager.EventoEnemigoSeleccionado -= EnemigoRangoSeleccionado;
+        SeleccionManager.EventoObjetoNoSeleccionado -= EnemigoNoSeleccionado;
     }
 }
