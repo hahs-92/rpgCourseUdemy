@@ -11,13 +11,40 @@ public class PersonajeAtaque : MonoBehaviour
     [Header("Pooler")]
     [SerializeField] private ObjectPooler pooler;
 
+    [Header("Ataque")]
+    [SerializeField] private float tiempoEntreAtaques;
+    [SerializeField] private Transform[] posicionesDisparo;
+
     public Arma ArmaEquipada { get; private set; }
     public EnemigoInteraccion EnemigoObjetivo { get; private set; }
+    private PersonajeMana _personajeMana;
+    private int indexDireccionDisparo;
+    private float tiempoParaSiguienteAtaque;
 
 
     private void Awake()
     {
-       
+        _personajeMana = GetComponent<PersonajeMana>();
+    }
+
+    private void Update()
+    {
+        ObtenerDireccionDisparo();
+
+        if (Time.time > tiempoParaSiguienteAtaque)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (ArmaEquipada == null || EnemigoObjetivo == null)
+                {
+                    return;
+                }
+
+                UsarArma();
+                tiempoParaSiguienteAtaque = Time.time + tiempoEntreAtaques;
+                //StartCoroutine(IEEstablecerCondicionAtaque());
+            }
+        }
     }
 
     public void EquiparArma(ItemArma armaPorEquipar)
@@ -45,6 +72,33 @@ public class PersonajeAtaque : MonoBehaviour
 
         stats.RemoverBonusPorArma(ArmaEquipada);
         ArmaEquipada = null;
+    }
+
+    private void UsarArma()
+    {
+        if (ArmaEquipada.Tipo == TipoArma.Magia)
+        {
+            if (_personajeMana.ManaActual < ArmaEquipada.ManaRequerida)
+            {
+                return;
+            }
+
+            GameObject nuevoProyectil = pooler.ObtenerInstancia();
+            nuevoProyectil.transform.localPosition = posicionesDisparo[indexDireccionDisparo].position;
+
+            Proyectil proyectil = nuevoProyectil.GetComponent<Proyectil>();
+            proyectil.InicializarProyectil(this);
+
+            nuevoProyectil.SetActive(true);
+            _personajeMana.UsarMana(ArmaEquipada.ManaRequerida);
+        }
+        else
+        {
+            //float daño = ObtenerDaño();
+            //EnemigoVida enemigoVida = EnemigoObjetivo.GetComponent<EnemigoVida>();
+            //enemigoVida.RecibirDaño(daño);
+            //EventoEnemigoDañado?.Invoke(daño);
+        }
     }
 
     private void EnemigoRangoSeleccionado(EnemigoInteraccion enemigoSeleccionado)
@@ -81,7 +135,26 @@ public class PersonajeAtaque : MonoBehaviour
         EnemigoObjetivo = null;
     }
 
-
+    private void ObtenerDireccionDisparo()
+    {
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (input.x > 0.1f)
+        {
+            indexDireccionDisparo = 1;
+        }
+        else if (input.x < 0f)
+        {
+            indexDireccionDisparo = 3;
+        }
+        else if (input.y > 0.1f)
+        {
+            indexDireccionDisparo = 0;
+        }
+        else if (input.y < 0f)
+        {
+            indexDireccionDisparo = 2;
+        }
+    }
 
     private void OnEnable()
     {
