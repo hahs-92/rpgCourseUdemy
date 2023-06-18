@@ -64,15 +64,38 @@ public class PersonajeAtaque : MonoBehaviour
         EnemigoObjetivo = null;
     }
 
+    private void EnemigoMeleeDetectado(EnemigoInteraccion enemigoDetectado)
+    {
+        if (ArmaEquipada == null) { return; }
+        if (ArmaEquipada.Tipo != TipoArma.Melee) { return; }
+        EnemigoObjetivo = enemigoDetectado;
+        EnemigoObjetivo.MostrarEnemigoSeleccionado(true, TipoDeteccion.Melee);
+    }
+
+    private void EnemigoMeleePerdido()
+    {
+        if (ArmaEquipada == null) { return; }
+        if (EnemigoObjetivo == null) { return; }
+        if (ArmaEquipada.Tipo != TipoArma.Melee) { return; }
+        EnemigoObjetivo.MostrarEnemigoSeleccionado(false, TipoDeteccion.Melee);
+        EnemigoObjetivo = null;
+    }
+
+
+
     private void OnEnable()
     {
         SeleccionManager.EventoEnemigoSeleccionado += EnemigoRangoSeleccionado;
         SeleccionManager.EventoObjetoNoSeleccionado += EnemigoNoSeleccionado;
+        PersonajeDetector.EventoEnemigoDetectado += EnemigoMeleeDetectado;
+        PersonajeDetector.EventoEnemigoPerdido += EnemigoMeleePerdido;
     }
 
     private void OnDisable()
     {
         SeleccionManager.EventoEnemigoSeleccionado -= EnemigoRangoSeleccionado;
         SeleccionManager.EventoObjetoNoSeleccionado -= EnemigoNoSeleccionado;
+        PersonajeDetector.EventoEnemigoDetectado -= EnemigoMeleeDetectado;
+        PersonajeDetector.EventoEnemigoPerdido -= EnemigoMeleePerdido;
     }
 }
