@@ -47,8 +47,8 @@ public class Proyectil : MonoBehaviour
     {
         if (other.CompareTag("Enemigo"))
         {
-            //float daño = PersonajeAtaque.ObtenerDaño();
-            //enemigoObjetivo.GetComponent<EnemigoVida>().RecibirDaño(daño);
+            float daño = PersonajeAtaque.ObtenerDaño();
+            enemigoObjetivo.GetComponent<EnemigoVida>().RecibirDaño(daño);
             //PersonajeAtaque.EventoEnemigoDañado?.Invoke(daño);
             gameObject.SetActive(false);
         }

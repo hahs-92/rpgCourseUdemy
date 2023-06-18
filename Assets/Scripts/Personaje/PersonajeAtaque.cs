@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class PersonajeAtaque : MonoBehaviour
 {
+    public static Action<float> EventoEnemigoDañado;
+
     [Header("Stats")]
     [SerializeField] private PersonajeStats stats;
 
@@ -75,6 +77,17 @@ public class PersonajeAtaque : MonoBehaviour
         ArmaEquipada = null;
     }
 
+    public float ObtenerDaño()
+    {
+        float cantidad = stats.Daño;
+        if (Random.value < stats.PorcentajeCritico / 100)
+        {
+            cantidad *= 2;
+        }
+
+        return cantidad;
+    }
+
     private IEnumerator IEEstablecerCondicionAtaque()
     {
         Atacando = true;
@@ -102,9 +115,9 @@ public class PersonajeAtaque : MonoBehaviour
         }
         else
         {
-            //float daño = ObtenerDaño();
-            //EnemigoVida enemigoVida = EnemigoObjetivo.GetComponent<EnemigoVida>();
-            //enemigoVida.RecibirDaño(daño);
+            float daño = ObtenerDaño();
+            EnemigoVida enemigoVida = EnemigoObjetivo.GetComponent<EnemigoVida>();
+            enemigoVida.RecibirDaño(daño);
             //EventoEnemigoDañado?.Invoke(daño);
         }
     }
