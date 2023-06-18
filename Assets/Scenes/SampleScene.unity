@@ -52812,6 +52812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerIdle: Idle
   layerCaminar: Caminar
+  layerAtacar: Atacar
 --- !u!114 &1683203235
 MonoBehaviour:
   m_ObjectHideFlags: 0

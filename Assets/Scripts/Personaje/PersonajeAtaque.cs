@@ -20,6 +20,7 @@ public class PersonajeAtaque : MonoBehaviour
     private PersonajeMana _personajeMana;
     private int indexDireccionDisparo;
     private float tiempoParaSiguienteAtaque;
+    public bool Atacando { get; set; }
 
 
     private void Awake()
@@ -42,7 +43,7 @@ public class PersonajeAtaque : MonoBehaviour
 
                 UsarArma();
                 tiempoParaSiguienteAtaque = Time.time + tiempoEntreAtaques;
-                //StartCoroutine(IEEstablecerCondicionAtaque());
+                StartCoroutine(IEEstablecerCondicionAtaque());
             }
         }
     }
@@ -72,6 +73,13 @@ public class PersonajeAtaque : MonoBehaviour
 
         stats.RemoverBonusPorArma(ArmaEquipada);
         ArmaEquipada = null;
+    }
+
+    private IEnumerator IEEstablecerCondicionAtaque()
+    {
+        Atacando = true;
+        yield return new WaitForSeconds(0.3f);
+        Atacando = false;
     }
 
     private void UsarArma()
