@@ -19,9 +19,12 @@ public class PersonajeFX : MonoBehaviour
     [Header("Tipo")]
     [SerializeField] private TipoPersonaje tipoPersonaje;
 
+    private EnemigoVida _enemigoVida;
+
     private void Awake()
     {
         //pooler = GetComponent<ObjectPooler>();
+        _enemigoVida = GetComponent<EnemigoVida>();
     }
 
     private void Start()
@@ -51,9 +54,9 @@ public class PersonajeFX : MonoBehaviour
         }
     }
 
-    private void RespuestaDañoHaciaEnemigo(float daño)
+    private void RespuestaDañoHaciaEnemigo(float daño, EnemigoVida enemigoVida)
     {
-        if (tipoPersonaje == TipoPersonaje.IA)
+        if (tipoPersonaje == TipoPersonaje.IA && _enemigoVida == enemigoVida)
         {
             StartCoroutine(IEMostrarTexto(daño, Color.red));
         }

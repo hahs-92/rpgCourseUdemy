@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class PersonajeAtaque : MonoBehaviour
 {
-    public static Action<float> EventoEnemigoDañado;
+    public static Action<float, EnemigoVida> EventoEnemigoDañado;
 
     [Header("Stats")]
     [SerializeField] private PersonajeStats stats;
@@ -118,7 +118,7 @@ public class PersonajeAtaque : MonoBehaviour
             float daño = ObtenerDaño();
             EnemigoVida enemigoVida = EnemigoObjetivo.GetComponent<EnemigoVida>();
             enemigoVida.RecibirDaño(daño);
-            EventoEnemigoDañado?.Invoke(daño);
+            EventoEnemigoDañado?.Invoke(daño, enemigoVida);
         }
     }
 
