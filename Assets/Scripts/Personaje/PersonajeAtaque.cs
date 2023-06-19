@@ -118,7 +118,7 @@ public class PersonajeAtaque : MonoBehaviour
             float daño = ObtenerDaño();
             EnemigoVida enemigoVida = EnemigoObjetivo.GetComponent<EnemigoVida>();
             enemigoVida.RecibirDaño(daño);
-            //EventoEnemigoDañado?.Invoke(daño);
+            EventoEnemigoDañado?.Invoke(daño);
         }
     }
 

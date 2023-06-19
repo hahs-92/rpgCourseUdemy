@@ -2,6 +2,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+public enum TipoPersonaje
+{
+    Player,
+    IA
+}
+
 public class PersonajeFX : MonoBehaviour
 {
     [SerializeField] private GameObject canvasTextoAnimacionPrefab;
@@ -9,6 +15,9 @@ public class PersonajeFX : MonoBehaviour
 
     [SerializeField] private ObjectPooler pooler;
     //private ObjectPooler pooler;
+
+    [Header("Tipo")]
+    [SerializeField] private TipoPersonaje tipoPersonaje;
 
     private void Awake()
     {
@@ -20,11 +29,11 @@ public class PersonajeFX : MonoBehaviour
         pooler.CrearPooler(canvasTextoAnimacionPrefab);
     }
 
-    private IEnumerator IEMostrarTexto(float cantidad)
+    private IEnumerator IEMostrarTexto(float cantidad, Color color)
     {
         GameObject nuevoTextoGO = pooler.ObtenerInstancia();
         TextoAnimacion texto = nuevoTextoGO.GetComponent<TextoAnimacion>();
-        texto.EstablecerTexto(cantidad);
+        texto.EstablecerTexto(cantidad, color);
         nuevoTextoGO.transform.SetParent(canvasTextoPosicion);
         nuevoTextoGO.transform.position = canvasTextoPosicion.position;
         nuevoTextoGO.SetActive(true);
@@ -34,18 +43,31 @@ public class PersonajeFX : MonoBehaviour
         nuevoTextoGO.transform.SetParent(pooler.ListaContenedor.transform);
     }
 
-    private void RespuestaDañoRecibido(float daño)
+    private void RespuestaDañoRecibidoHaciaPlayer(float daño)
     {
-        StartCoroutine(IEMostrarTexto(daño));
+        if (tipoPersonaje == TipoPersonaje.Player)
+        {
+            StartCoroutine(IEMostrarTexto(daño, Color.black));
+        }
+    }
+
+    private void RespuestaDañoHaciaEnemigo(float daño)
+    {
+        if (tipoPersonaje == TipoPersonaje.IA)
+        {
+            StartCoroutine(IEMostrarTexto(daño, Color.red));
+        }
     }
 
     private void OnEnable()
     {
-        IAController.EventoDañoRealizado += RespuestaDañoRecibido;
+        IAController.EventoDañoRealizado += RespuestaDañoRecibidoHaciaPlayer;
+        PersonajeAtaque.EventoEnemigoDañado += RespuestaDañoHaciaEnemigo;
     }
 
     private void OnDisable()
     {
-        IAController.EventoDañoRealizado -= RespuestaDañoRecibido;
+        IAController.EventoDañoRealizado -= RespuestaDañoRecibidoHaciaPlayer;
+        PersonajeAtaque.EventoEnemigoDañado -= RespuestaDañoHaciaEnemigo;
     }
 }

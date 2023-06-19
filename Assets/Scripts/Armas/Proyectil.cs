@@ -49,7 +49,7 @@ public class Proyectil : MonoBehaviour
         {
             float daño = PersonajeAtaque.ObtenerDaño();
             enemigoObjetivo.GetComponent<EnemigoVida>().RecibirDaño(daño);
-            //PersonajeAtaque.EventoEnemigoDañado?.Invoke(daño);
+            PersonajeAtaque.EventoEnemigoDañado?.Invoke(daño);
             gameObject.SetActive(false);
         }
     }

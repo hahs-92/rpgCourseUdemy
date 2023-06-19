@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1881445240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881445241}
+  m_Layer: 7
+  m_Name: textoPosicion
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881445241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881445240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4094362108715844359}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2223284885854307300
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +354,8 @@ GameObject:
   - component: {fileID: 4094362108715844606}
   - component: {fileID: 3557111555839643573}
   - component: {fileID: 354409216820408923}
+  - component: {fileID: 1306531311}
+  - component: {fileID: 1306531312}
   m_Layer: 7
   m_Name: EnemigoRojo
   m_TagString: Enemigo
@@ -345,6 +378,7 @@ Transform:
   - {fileID: 5054727000139271590}
   - {fileID: 8837758815452797900}
   - {fileID: 4240853375225073334}
+  - {fileID: 1881445241}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -556,3 +590,32 @@ MonoBehaviour:
   saludMax: 20
   barraVidaPrefab: {fileID: 343181104103506450, guid: 5cfb6267eb0e90f47b0d0c01ad4ffae6, type: 3}
   barraVidaPosicion: {fileID: 5750334595591970976}
+--- !u!114 &1306531311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094362108715844607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c442a38f3e6a894e8ac769bbf7b3533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cantidadPorCrear: 10
+--- !u!114 &1306531312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094362108715844607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e88126d21231ce4eac7e4fbd588c38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasTextoAnimacionPrefab: {fileID: 5036642853385067189, guid: d7440192a408f984499265c88b823ba0, type: 3}
+  canvasTextoPosicion: {fileID: 1881445241}
+  pooler: {fileID: 1306531311}
+  tipoPersonaje: 1
