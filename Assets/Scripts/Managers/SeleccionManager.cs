@@ -39,8 +39,8 @@ public class SeleccionManager : MonoBehaviour
                 }
                 else
                 {
-                    //EnemigoLoot loot = EnemigoSeleccionado.GetComponent<EnemigoLoot>();
-                    LootManager.Instance.MostrarLoot();
+                    EnemigoLoot loot = EnemigoSeleccionado.GetComponent<EnemigoLoot>();
+                    LootManager.Instance.MostrarLoot(loot);
                 }
             }
             else

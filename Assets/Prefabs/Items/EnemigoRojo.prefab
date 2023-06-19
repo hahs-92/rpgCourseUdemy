@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 354409216820408923}
   - component: {fileID: 1306531311}
   - component: {fileID: 1306531312}
+  - component: {fileID: 1306531323}
   m_Layer: 7
   m_Name: EnemigoRojo
   m_TagString: Enemigo
@@ -705,3 +706,32 @@ MonoBehaviour:
   canvasTextoPosicion: {fileID: 1881445241}
   pooler: {fileID: 1306531311}
   tipoPersonaje: 1
+--- !u!114 &1306531323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094362108715844607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41a21cc0a489b34ea5ea6c81ef39ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootDisponible:
+  - Nombre: Pocion Vida
+    Item: {fileID: 11400000, guid: f17b4ec530d121b408977049ab147971, type: 2}
+    Cantidad: 10
+    PorcentajeDrop: 100
+  - Nombre: Pocion Mana
+    Item: {fileID: 11400000, guid: 577c020cdf667a24498ced01aa5d0023, type: 2}
+    Cantidad: 10
+    PorcentajeDrop: 80
+  - Nombre: Arma Libro
+    Item: {fileID: 11400000, guid: a072a187ba1fb0349bf52b3de9160596, type: 2}
+    Cantidad: 1
+    PorcentajeDrop: 35
+  - Nombre: Arma Tridente
+    Item: {fileID: 11400000, guid: 9cbb5eae413fc9c488f8ff2691e1e32b, type: 2}
+    Cantidad: 1
+    PorcentajeDrop: 15
