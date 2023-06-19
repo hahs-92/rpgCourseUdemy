@@ -38,12 +38,12 @@ public class QuestManager : Singleton<QuestManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            AñadirProgreso("Mata10", 1);
-            AñadirProgreso("Mata25", 1);
-            AñadirProgreso("Mata50", 1);
-        }
+        //if (Input.GetKeyDown(KeyCode.V))
+        //{
+        //    AñadirProgreso("Mata10", 1);
+        //    AñadirProgreso("Mata25", 1);
+        //    AñadirProgreso("Mata50", 1);
+        //}
     }
 
     private void OnEnable()
