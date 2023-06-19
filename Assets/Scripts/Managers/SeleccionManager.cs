@@ -30,8 +30,18 @@ public class SeleccionManager : MonoBehaviour
                 Vector2.zero, Mathf.Infinity, LayerMask.GetMask("Enemigo"));
             if (hit.collider != null)
             {
+                
                 EnemigoSeleccionado = hit.collider.GetComponent<EnemigoInteraccion>();
-                EventoEnemigoSeleccionado?.Invoke(EnemigoSeleccionado);
+                EnemigoVida enemigoVida = EnemigoSeleccionado.GetComponent<EnemigoVida>();
+                if (enemigoVida.Salud > 0f)
+                {
+                    EventoEnemigoSeleccionado?.Invoke(EnemigoSeleccionado);
+                }
+                else
+                {
+                    //EnemigoLoot loot = EnemigoSeleccionado.GetComponent<EnemigoLoot>();
+                    LootManager.Instance.MostrarLoot();
+                }
             }
             else
             {
