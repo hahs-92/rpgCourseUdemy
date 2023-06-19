@@ -256,7 +256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4219842552027106814}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2744048588240024033}
+        m_TargetAssemblyTypeName: ItemTienda, Assembly-CSharp
+        m_MethodName: RestarItemPorComprar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4219842552082990467
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +601,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4219842552714398179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2744048588240024033}
+        m_TargetAssemblyTypeName: ItemTienda, Assembly-CSharp
+        m_MethodName: ComprarItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4219842552823389254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1182,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4219842553634457480}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2744048588240024033}
+        m_TargetAssemblyTypeName: ItemTienda, Assembly-CSharp
+        m_MethodName: SumarItemPorComprar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4219842553850763173
 GameObject:
   m_ObjectHideFlags: 0

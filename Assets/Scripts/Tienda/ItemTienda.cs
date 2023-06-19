@@ -34,4 +34,36 @@ public class ItemTienda : MonoBehaviour
         costoInicial = itemVenta.Costo;
         costoActual = itemVenta.Costo;
     }
+
+    public void ComprarItem()
+    {
+        if (MonedasManager.Instance.MonedasTotales >= costoActual)
+        {
+            Inventario.Instance.AñadirItem(ItemCargado.Item, cantidad);
+            MonedasManager.Instance.RemoverMonedas(costoActual);
+            cantidad = 1;
+            costoActual = costoInicial;
+        }
+    }
+
+    public void SumarItemPorComprar()
+    {
+        int costoDeCompra = costoInicial * (cantidad + 1);
+        if (MonedasManager.Instance.MonedasTotales >= costoDeCompra)
+        {
+            cantidad++;
+            costoActual = costoInicial * cantidad;
+        }
+    }
+
+    public void RestarItemPorComprar()
+    {
+        if (cantidad == 1)
+        {
+            return;
+        }
+
+        cantidad--;
+        costoActual = costoInicial * cantidad;
+    }
 }
