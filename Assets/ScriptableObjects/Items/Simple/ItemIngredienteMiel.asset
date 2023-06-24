@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c268b771eeb3c49becc895b161d0ad, type: 3}
+  m_Name: ItemIngredienteMiel
+  m_EditorClassIdentifier: 
+  ID: IngredienteMiel
+  Nombre: Miel
+  Icono: {fileID: 21300000, guid: 0e09627b6c2f49e418ce69c170a4a26b, type: 3}
+  Descripcion: Ingrediente para construir otros items
+  Tipo: 3
+  EsConsumible: 1
+  EsAcumulable: 1
+  AcumulacionMax: 10
+  Cantidad: 0
