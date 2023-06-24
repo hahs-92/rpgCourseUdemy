@@ -194,7 +194,10 @@ MonoBehaviour:
   primerMaterialCantidad: {fileID: 1945163482}
   segundoMaterialCantidad: {fileID: 1486229579}
   recetaMensage: {fileID: 1567258330}
-  buttonCraftiar: {fileID: 1698694941}
+  buttonCraftear: {fileID: 1698694941}
+  itemResultadoIcono: {fileID: 476074873}
+  itemResulatdoNombre: {fileID: 1745476620}
+  itemResulatdoDescripcion: {fileID: 870082086}
   recetas: {fileID: 11400000, guid: 73be3cb7514d1c647ba9194763dd561b, type: 2}
 --- !u!1 &24216709
 GameObject:
@@ -58784,6 +58787,9 @@ MonoBehaviour:
   - Nombre: Pergamino Libre
     Item: {fileID: 11400000, guid: 7b9d5b79e7ad35049ace08787a37c39a, type: 2}
     Costo: 10
+  - Nombre: Miel
+    Item: {fileID: 11400000, guid: aaf080b9d44f12041bf30f4c7067d035, type: 2}
+    Costo: 10
 --- !u!1 &1323134816
 GameObject:
   m_ObjectHideFlags: 0
@@ -69821,7 +69827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1698694942}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 22496091}
+        m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
+        m_MethodName: Craftear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1698694942
 MonoBehaviour:
   m_ObjectHideFlags: 0

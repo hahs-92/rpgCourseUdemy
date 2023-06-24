@@ -18,7 +18,12 @@ public class CraftingManager : Singleton<CraftingManager>
     [SerializeField] private TextMeshProUGUI primerMaterialCantidad;
     [SerializeField] private TextMeshProUGUI segundoMaterialCantidad;
     [SerializeField] private TextMeshProUGUI recetaMensage;
-    [SerializeField] private Button buttonCraftiar;
+    [SerializeField] private Button buttonCraftear;
+
+    [Header("Receta Item Resultado")]
+    [SerializeField] private Image itemResultadoIcono;
+    [SerializeField] private TextMeshProUGUI itemResulatdoNombre;
+    [SerializeField] private TextMeshProUGUI itemResulatdoDescripcion;
 
     [Header("Recetas")]
     [SerializeField] private RecetaLista recetas;
@@ -43,8 +48,49 @@ public class CraftingManager : Singleton<CraftingManager>
         primerMaterialCantidad.text = $"{Inventario.Instance.ObtenerCantidadItems(receta.Item1.ID)}/{receta.Item1CantidadRequerida}";
         segundoMaterialCantidad.text = $"{Inventario.Instance.ObtenerCantidadItems(receta.Item2.ID)}/{receta.Item2CantidadRequerida}";
 
+        if(SetPuedeCraftear(receta))
+        {
+            recetaMensage.text = "Receta Dsiaponible";
+            buttonCraftear.interactable= true;
+        } else
+        {
+            recetaMensage.text = "Necesitas mas materiales";
+            buttonCraftear.interactable = false;
+        }
+
+        itemResultadoIcono.sprite = receta.ItemResultado.Icono;
+        itemResulatdoNombre.text = receta.ItemResultado.Nombre;
+        itemResulatdoDescripcion.text = receta.ItemResultado.DescripcionItemCrafting();
     }
 
+    public bool SetPuedeCraftear(Receta receta)
+    {
+        if(
+            Inventario.Instance.ObtenerCantidadItems(receta.Item1.ID)  >= receta.Item1CantidadRequerida &&
+            Inventario.Instance.ObtenerCantidadItems(receta.Item2.ID) >= receta.Item2CantidadRequerida
+         )
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Craftear()
+    {
+        for(int i = 0; i < RecetaSelecionada.Item1CantidadRequerida; i++)
+        {
+            Inventario.Instance.ConsumirItem(RecetaSelecionada.Item1.ID);
+        }    
+        
+        for(int i = 0; i < RecetaSelecionada.Item2CantidadRequerida; i++)
+        {
+            Inventario.Instance.ConsumirItem(RecetaSelecionada.Item2.ID);
+        }
+
+        Inventario.Instance.AñadirItem(RecetaSelecionada.ItemResultado, RecetaSelecionada.ItemResultadoCantidad);
+        MostarReceta(RecetaSelecionada);
+    }
 
     private void CargarRecetas()
     {

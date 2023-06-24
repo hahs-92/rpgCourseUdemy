@@ -84,6 +84,16 @@ public class Inventario : Singleton<Inventario>
         return cantidadTotal;
     }
 
+    public void ConsumirItem(string itemID)
+    {
+        List<int> indexes = VerificarExistencias(itemID);
+        
+        if(indexes.Count > 0)
+        {
+            EliminarItem(indexes[indexes.Count - 1]);
+        }
+    }
+
     private List<int> VerificarExistencias(string itemID)
     {
         List<int> indexesDelItem = new List<int>();

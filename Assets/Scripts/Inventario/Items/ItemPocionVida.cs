@@ -16,4 +16,10 @@ public class ItemPocionVida : InventarioItem
 
         return false;
     }
+
+    public override string DescripcionItemCrafting()
+    {
+        string descripcion = $"Restaura {HPRestauracion} de salud";
+        return descripcion;
+    }
 }
