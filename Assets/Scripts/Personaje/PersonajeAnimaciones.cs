@@ -85,6 +85,8 @@ public class PersonajeAnimaciones : MonoBehaviour
             _animator.SetBool(derrotado, true);
         } else
         {
+            // forzamos a que se vaya al layer Idle, para que despues pase al
+            // layer de PersonajeDerrotado
             ActivarLayer(layerIdle);
             _animator.SetBool(derrotado, true);
         }

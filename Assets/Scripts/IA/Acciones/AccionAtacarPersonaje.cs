@@ -22,6 +22,11 @@ public class AccionAtacarPersonaje : IAAccion
             return;
         }
 
+        if(controller.PersonajeReferencia.GetComponent<PersonajeVida>().Derrotado)
+        {
+            return;
+        }
+
         if (controller.PersonajeEnRangoDeAtaque(controller.RangoDeAtaqueDeterminado))
         {
             if (controller.TipoAtaque == TiposDeAtaque.Embestida)
