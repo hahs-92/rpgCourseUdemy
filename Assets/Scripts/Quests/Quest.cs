@@ -24,18 +24,19 @@ public class Quest : ScriptableObject
 
     [HideInInspector] public int CantidadActual;
     [HideInInspector] public bool QuestCompletadoCheck;
+    [HideInInspector] public bool QuestAceptado;
 
-
-    private void OnEnable()
-    {
-        QuestCompletadoCheck = false;
-        CantidadActual = 0;
-    }
 
     public void AñadirProgreso(int cantidad)
     {
         CantidadActual += cantidad;
         VerificarQuestCompletado();
+    }
+
+    public void ResetQuest()
+    {
+        QuestCompletadoCheck = false;
+        CantidadActual = 0;
     }
 
     private void VerificarQuestCompletado()
