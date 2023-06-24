@@ -187,6 +187,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recetaTarjetaPrefab: {fileID: 4266658223601042787, guid: 225a4799225d02d4a8ed6ee96b08ba6e, type: 3}
   recetaContendor: {fileID: 1393012111}
+  primerMaterialIcono: {fileID: 2068897479}
+  segundoMaterialIcono: {fileID: 1857707930}
+  primerMaterialNombre: {fileID: 1202331449}
+  segundoMaterialNombre: {fileID: 195557674}
+  primerMaterialCantidad: {fileID: 1945163482}
+  segundoMaterialCantidad: {fileID: 1486229579}
+  recetaMensage: {fileID: 1567258330}
+  buttonCraftiar: {fileID: 1698694941}
   recetas: {fileID: 11400000, guid: 73be3cb7514d1c647ba9194763dd561b, type: 2}
 --- !u!1 &24216709
 GameObject:
@@ -12867,7 +12875,7 @@ RectTransform:
   - {fileID: 689687496}
   - {fileID: 457322455}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13994,7 +14002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &457322455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14746,7 +14754,7 @@ RectTransform:
   - {fileID: 1251995819}
   - {fileID: 1891815892}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -57318,7 +57326,7 @@ RectTransform:
   - {fileID: 1743402313}
   - {fileID: 994549775}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -57396,7 +57404,7 @@ RectTransform:
   - {fileID: 2130171449}
   - {fileID: 1859689869}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -59258,7 +59266,6 @@ RectTransform:
   - {fileID: 1853992229}
   - {fileID: 372424270}
   - {fileID: 1026165360}
-  - {fileID: 1657981392}
   - {fileID: 506519127}
   - {fileID: 1244609496}
   - {fileID: 1241169152}
@@ -59266,6 +59273,7 @@ RectTransform:
   - {fileID: 2060910252}
   - {fileID: 1915755648}
   - {fileID: 374469714}
+  - {fileID: 1657981392}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -68794,7 +68802,7 @@ RectTransform:
   - {fileID: 1684041017}
   - {fileID: 2067122444}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 4
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -70035,6 +70043,7 @@ MonoBehaviour:
   panelInspectoQuests: {fileID: 506519126}
   panelPersonajeQuests: {fileID: 1244609495}
   panelCrafting: {fileID: 374469713}
+  panelCraftingInfo: {fileID: 457322454}
   vidaPlayer: {fileID: 2093709261}
   manaPlayer: {fileID: 1293202959}
   expPlayer: {fileID: 531481387}
@@ -70865,7 +70874,7 @@ RectTransform:
   - {fileID: 863631822}
   - {fileID: 69308609}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -72970,7 +72979,7 @@ RectTransform:
   - {fileID: 412850396}
   - {fileID: 1146391743}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -74584,7 +74593,7 @@ RectTransform:
   - {fileID: 1545315177}
   - {fileID: 1550794586}
   m_Father: {fileID: 1339023710}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
