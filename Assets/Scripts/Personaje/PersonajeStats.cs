@@ -10,6 +10,7 @@ public class PersonajeStats : ScriptableObject
     public float Nivel;
     public float ExpActual;
     public float ExpRequeridaSiguienteNivel;
+    public float ExpTotal;
     [Range(0f, 100f)] public float PorcentajeCritico;
     [Range(0f, 100f)] public float PorcentajeBloqueo;
 
@@ -62,6 +63,7 @@ public class PersonajeStats : ScriptableObject
         Nivel = 1;
         ExpActual = 0f;
         ExpRequeridaSiguienteNivel = 0f;
+        ExpTotal= 0f;
         PorcentajeBloqueo = 0f;
         PorcentajeCritico = 0f;
 

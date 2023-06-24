@@ -11,7 +11,7 @@ public class PersonajeExperiencia : MonoBehaviour
     [SerializeField] private int valorIncremental;
 
     private float expActual;
-    private float expActualTemp;
+    //private float expActualTemp;
     private float expRequeridaSiguienteNivel;
 
     private void Start()
@@ -32,29 +32,47 @@ public class PersonajeExperiencia : MonoBehaviour
 
     public void AñadirExperiencia(float expObtenida)
     {
-        if (expObtenida > 0f) // 10exp
+        if (expObtenida <= 0) return;
+
+        expActual += expObtenida;
+        stats.ExpActual = expActual;
+
+        if(expActual == expRequeridaSiguienteNivel)
         {
-            float expRestanteNuevoNivel = expRequeridaSiguienteNivel - expActualTemp; // 8 - 4 = 4
-            if (expObtenida >= expRestanteNuevoNivel) // subir nivel
-            {
-                expObtenida -= expRestanteNuevoNivel; // 6exp
-                expActual += expObtenida;
-                ActualizarNivel();
-                AñadirExperiencia(expObtenida);
-            }
-            else
-            {
-                expActual += expObtenida;
-                expActualTemp += expObtenida;
-                if (expActualTemp == expRequeridaSiguienteNivel)
-                {
-                    ActualizarNivel();
-                }
-            }
+            ActualizarNivel();
+        } else if(expActual > expRequeridaSiguienteNivel) 
+        {
+            float diferencia = expActual - expRequeridaSiguienteNivel;
+            ActualizarNivel();
+            AñadirExperiencia(diferencia);
         }
 
-        stats.ExpActual = expActual;
+        stats.ExpTotal += expObtenida;
         ActualizarBarraExp();
+
+        //if (expObtenida > 0f) // 10exp
+        //{
+        //    float expRestanteNuevoNivel = expRequeridaSiguienteNivel - expActualTemp; // 8 - 4 = 4
+        //    if (expObtenida >= expRestanteNuevoNivel) // subir nivel
+        //    {
+        //        expObtenida -= expRestanteNuevoNivel; // 6exp
+        //        expActual += expObtenida;
+        //        ActualizarNivel();
+        //        AñadirExperiencia(expObtenida);
+        //    }
+        //    else
+        //    {
+        //        expActual += expObtenida;
+        //        expActualTemp += expObtenida;
+        //        if (expActualTemp == expRequeridaSiguienteNivel)
+        //        {
+        //            ActualizarNivel();
+        //        }
+        //    }
+        //}
+
+        //stats.ExpActual = expActual;
+        //ActualizarBarraExp();
     }
 
     private void ActualizarNivel()
@@ -62,7 +80,9 @@ public class PersonajeExperiencia : MonoBehaviour
         if (stats.Nivel < nivelMax)
         {
             stats.Nivel++;
-            expActualTemp = 0f;
+            stats.ExpActual = 0;
+            expActual = 0;
+            //expActualTemp = 0f;
             expRequeridaSiguienteNivel *= valorIncremental;
             stats.ExpRequeridaSiguienteNivel = expRequeridaSiguienteNivel;
             stats.PuntosDisponibles += 3;
@@ -71,7 +91,7 @@ public class PersonajeExperiencia : MonoBehaviour
 
     private void ActualizarBarraExp()
     {
-        UIManager.Instance.ActualizarExpPersonaje(expActualTemp, expRequeridaSiguienteNivel);
+        UIManager.Instance.ActualizarExpPersonaje(expActual, expRequeridaSiguienteNivel);
     }
 
 
